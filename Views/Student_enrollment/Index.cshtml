@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Student_Mgmt_System_MVC.Models.Student_enrollment>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.student_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.course_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tutor_ID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.student_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.course_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tutor_ID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Student_Enrollment_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Student_Enrollment_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Student_Enrollment_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
